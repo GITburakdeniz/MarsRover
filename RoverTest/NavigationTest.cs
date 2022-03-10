@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NavigationLibrary;
+using System.Collections.Generic;
 
 namespace RoverTest
 {
@@ -30,6 +31,21 @@ namespace RoverTest
                       string.Format("Expected for '{0}': true; Actual: {1}",
                                     word, result));
             }
+        }
+
+        [TestMethod]
+        public void TestValidLeftDirection()
+        {   
+            List<Direction> currentDirections = new(){ Direction.North, Direction.South, Direction.East, Direction.West };
+            List<Direction> expectedDirections = new() { Direction.West, Direction.East, Direction.North, Direction.South };
+            List<Direction> nextDirections = new();
+
+            foreach (var direction in currentDirections)
+            {   
+                nextDirections.Add(direction.GetLeftDirection());
+            }
+            
+            CollectionAssert.AreEqual(nextDirections, expectedDirections);
         }
     }
 }

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace NavigationLibrary
 {
@@ -18,6 +14,17 @@ namespace NavigationLibrary
                 return true;
 
             return false;
+        }
+
+        public static Direction GetLeftDirection(this Direction direction)
+        {
+            int currentDir = Convert.ToInt32(direction);
+
+            if (currentDir == 0)
+                return Direction.North;
+
+            currentDir--;
+            return (Direction)currentDir;
         }
     }
 }
