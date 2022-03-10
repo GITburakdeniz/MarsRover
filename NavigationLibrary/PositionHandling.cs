@@ -1,6 +1,6 @@
 ﻿namespace NavigationLibrary
 {
-    public static class BorderHandling
+    public static class PositionHandling
     {
         public static bool IsValidBorder(this string? str)
         {
