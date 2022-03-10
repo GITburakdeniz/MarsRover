@@ -9,8 +9,8 @@ namespace RoverTest
         [TestMethod]
         public void TestInvalidTurns()
         {
-            string[] borders = { "LLTLL", "MMRU", "1 0", ".", ";", "rml", "RMLI","L MM", "MMRMM RMRRM" };
-            foreach (var word in borders)
+            string[] turns = { "LLTLL", "MMRU", "1 0", ".", ";", "rml", "RMLI","L MM", "MMRMM RMRRM" };
+            foreach (var word in turns)
             {
                 bool result = word.IsValidTurn();
                 Assert.IsFalse(result,
@@ -22,8 +22,8 @@ namespace RoverTest
         [TestMethod]
         public void TestValidTurns()
         {
-            string[] borders = { "LLLL", "MM", "LMLMLMLMM", "MMRMMRMRRM", "MMRMMRMRRLML" };
-            foreach (var word in borders)
+            string[] turns = { "LLLL", "MM", "LMLMLMLMM", "MMRMMRMRRM", "MMRMMRMRRLML" };
+            foreach (var word in turns)
             {
                 bool result = word.IsValidTurn();
                 Assert.IsTrue(result,
