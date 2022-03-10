@@ -16,26 +16,26 @@ namespace NavigationLibrary
             return false;
         }
 
-        public static Direction GetLeftDirection(this Direction direction)
+        public static void TurnLeft(this Position position)
         {
-            int currentDir = Convert.ToInt32(direction);
-
-            if (currentDir == 0)
-                return Direction.North;
-
+            int currentDir = Convert.ToInt32(position.Direction);
+            
             currentDir--;
-            return (Direction)currentDir;
+            position.Direction = (Direction)currentDir;
+
+            if (currentDir == -1)
+                position.Direction = Direction.North;
         }
 
-        public static Direction GetRightDirection(this Direction direction)
+        public static void TurnRight(this Position position)
         {
-            int currentDir = Convert.ToInt32(direction);
-
-            if (currentDir == (Convert.ToInt32(Direction.NumberOfDirection)-1))
-                return Direction.East;
-
+            int currentDir = Convert.ToInt32(position.Direction);
+            
             currentDir++;
-            return (Direction)currentDir;
+            position.Direction = (Direction)currentDir;
+
+            if (currentDir == (Convert.ToInt32(Direction.NumberOfDirection)))
+                position.Direction = Direction.East;
         }
 
         public static void MoveFoward(this Position position)

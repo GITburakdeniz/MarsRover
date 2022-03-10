@@ -35,22 +35,24 @@ namespace RoverTest
         }
 
         [TestMethod]
-        public void TestValidLeftDirection()
+        public void TestTurnLeft()
         {   
             List<Direction> currentDirections = new(){ Direction.North, Direction.South, Direction.East, Direction.West };
             List<Direction> expectedDirections = new() { Direction.West, Direction.East, Direction.North, Direction.South };
             List<Direction> nextDirections = new();
 
             foreach (var direction in currentDirections)
-            {   
-                nextDirections.Add(direction.GetLeftDirection());
+            {
+                Position position = new Position(3, 4, direction);
+                position.TurnLeft();
+                nextDirections.Add(position.Direction);
             }
             
             CollectionAssert.AreEqual(nextDirections, expectedDirections);
         }
 
         [TestMethod]
-        public void TestValidRightDirection()
+        public void TestRightLeft()
         {
             List<Direction> currentDirections = new() { Direction.North, Direction.South, Direction.East, Direction.West };
             List<Direction> expectedDirections = new() { Direction.East, Direction.West, Direction.South, Direction.North };
@@ -58,7 +60,9 @@ namespace RoverTest
 
             foreach (var direction in currentDirections)
             {
-                nextDirections.Add(direction.GetRightDirection());
+                Position position = new Position(3, 4, direction);
+                position.TurnRight();
+                nextDirections.Add(position.Direction);
             }
 
             CollectionAssert.AreEqual(nextDirections, expectedDirections);
