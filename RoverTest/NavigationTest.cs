@@ -47,5 +47,20 @@ namespace RoverTest
             
             CollectionAssert.AreEqual(nextDirections, expectedDirections);
         }
+
+        [TestMethod]
+        public void TestValidRightDirection()
+        {
+            List<Direction> currentDirections = new() { Direction.North, Direction.South, Direction.East, Direction.West };
+            List<Direction> expectedDirections = new() { Direction.East, Direction.West, Direction.South, Direction.North };
+            List<Direction> nextDirections = new();
+
+            foreach (var direction in currentDirections)
+            {
+                nextDirections.Add(direction.GetRightDirection());
+            }
+
+            CollectionAssert.AreEqual(nextDirections, expectedDirections);
+        }
     }
 }

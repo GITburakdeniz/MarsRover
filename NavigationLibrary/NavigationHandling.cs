@@ -26,5 +26,16 @@ namespace NavigationLibrary
             currentDir--;
             return (Direction)currentDir;
         }
+
+        public static Direction GetRightDirection(this Direction direction)
+        {
+            int currentDir = Convert.ToInt32(direction);
+
+            if (currentDir == (Convert.ToInt32(Direction.NumberOfDirection)-1))
+                return Direction.East;
+
+            currentDir++;
+            return (Direction)currentDir;
+        }
     }
 }
