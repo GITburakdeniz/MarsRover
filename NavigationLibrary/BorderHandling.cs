@@ -22,5 +22,18 @@
             }
             return false;
         }
+
+        public static bool IsValidDirection(this string? str)
+        {
+            if (str.IsValidBorder())
+            {
+                string[] positions = str.Split(" ");
+                if (positions.Length == 3 && new string[] { "N","S","W","E" }.Contains(positions[2]))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
