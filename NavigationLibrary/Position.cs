@@ -7,6 +7,13 @@ namespace NavigationLibrary
         private int yCor;
         private Direction direction;
 
+        public Position(int xCor, int yCor, Direction direction)
+        {
+            this.xCor = xCor;   
+            this.yCor = yCor;
+            this.direction = direction;
+        }
+
         public int XCordinate 
         {
             get { return xCor; } 
