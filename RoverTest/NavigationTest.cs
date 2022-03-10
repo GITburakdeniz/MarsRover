@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NavigationLibrary;
+using System;
 using System.Collections.Generic;
 
 namespace RoverTest
@@ -34,22 +35,24 @@ namespace RoverTest
         }
 
         [TestMethod]
-        public void TestValidLeftDirection()
+        public void TestTurnLeft()
         {   
             List<Direction> currentDirections = new(){ Direction.North, Direction.South, Direction.East, Direction.West };
             List<Direction> expectedDirections = new() { Direction.West, Direction.East, Direction.North, Direction.South };
             List<Direction> nextDirections = new();
 
             foreach (var direction in currentDirections)
-            {   
-                nextDirections.Add(direction.GetLeftDirection());
+            {
+                Position position = new Position(3, 4, direction);
+                position.TurnLeft();
+                nextDirections.Add(position.Direction);
             }
             
             CollectionAssert.AreEqual(nextDirections, expectedDirections);
         }
 
         [TestMethod]
-        public void TestValidRightDirection()
+        public void TestRightLeft()
         {
             List<Direction> currentDirections = new() { Direction.North, Direction.South, Direction.East, Direction.West };
             List<Direction> expectedDirections = new() { Direction.East, Direction.West, Direction.South, Direction.North };
@@ -57,10 +60,66 @@ namespace RoverTest
 
             foreach (var direction in currentDirections)
             {
-                nextDirections.Add(direction.GetRightDirection());
+                Position position = new Position(3, 4, direction);
+                position.TurnRight();
+                nextDirections.Add(position.Direction);
             }
 
             CollectionAssert.AreEqual(nextDirections, expectedDirections);
+        }
+
+        [TestMethod]
+        public void TestValidMoveFoward()
+        {
+            Plateau.GetInstance().UpperXCordinate = 5;
+            Plateau.GetInstance().UpperYCordinate = 5;
+
+            Direction direction = Direction.North;
+            Position position = new Position(3, 4, direction);
+
+            position.MoveFoward();
+            Assert.AreEqual(3, position.XCordinate);
+            Assert.AreEqual(5, position.YCordinate);
+
+            position.MoveFoward();
+            Assert.IsTrue(position.IsStopped);
+            position.IsStopped = false;
+
+            direction = Direction.South;
+            position = new Position(4, 5, direction);
+
+            position.MoveFoward();
+            Assert.AreEqual(4, position.XCordinate);
+            Assert.AreEqual(4, position.YCordinate);
+
+            direction = Direction.West;
+            position = new Position(4, 5, direction);
+
+            position.MoveFoward();
+            Assert.AreEqual(3, position.XCordinate);
+            Assert.AreEqual(5, position.YCordinate);
+
+            position.MoveFoward();
+            Assert.AreEqual(2, position.XCordinate);
+            Assert.AreEqual(5, position.YCordinate);
+            Assert.IsFalse(position.IsStopped);
+
+            direction = Direction.East;
+            position = new Position(0, 0, direction);
+
+            position.MoveFoward();
+            Assert.AreEqual(1, position.XCordinate);
+            Assert.AreEqual(0, position.YCordinate);
+
+            position.MoveFoward();
+            position.MoveFoward();
+            position.MoveFoward();
+            position.MoveFoward();
+            position.MoveFoward();
+            position.MoveFoward();
+
+            Assert.IsTrue(position.IsStopped);
+
         }
     }
 }
