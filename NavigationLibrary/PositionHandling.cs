@@ -2,7 +2,7 @@
 {
     public static class PositionHandling
     {
-        public static bool IsValidBorder(this string? str)
+        public static bool IsValidPosition(this string? str)
         {
 
             if (string.IsNullOrWhiteSpace(str))
@@ -25,7 +25,7 @@
 
         public static bool IsValidDirection(this string? str)
         {
-            if (str.IsValidBorder())
+            if (str.IsValidPosition())
             {
                 string[] positions = str.Split(" ");
                 if (positions.Length == 3 && new string[] { "N","S","W","E" }.Contains(positions[2]))
