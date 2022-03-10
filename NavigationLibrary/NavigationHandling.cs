@@ -37,5 +37,28 @@ namespace NavigationLibrary
             currentDir++;
             return (Direction)currentDir;
         }
+
+        public static void MoveFoward(this Position position)
+        {
+            long tempX, tempY;
+            tempX = position.XCordinate;
+            tempY = position.YCordinate;
+
+            if (position.Direction == Direction.North)
+                position.YCordinate++;
+            if (position.Direction == Direction.East)
+                position.XCordinate++;
+            if (position.Direction == Direction.West)
+                position.XCordinate--;
+            if (position.Direction == Direction.South)
+                position.YCordinate--;
+
+            if (!position.IsInBorder())
+            {
+                position.XCordinate = tempX;
+                position.YCordinate = tempY;
+                position.IsStopped = true;
+            }
+        }
     }
 }

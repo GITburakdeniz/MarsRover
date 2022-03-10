@@ -6,12 +6,14 @@ namespace NavigationLibrary
         private long xCor;
         private long yCor;
         private Direction direction;
+        private bool isStopped;
 
         public Position(long xCor, long yCor, Direction direction)
         {
             this.xCor = xCor;   
             this.yCor = yCor;
             this.direction = direction;
+            this.isStopped = false;
         }
 
         public long XCordinate 
@@ -30,6 +32,12 @@ namespace NavigationLibrary
         {
             get { return direction; }
             set { direction = value; }
+        }
+
+        public bool IsStopped
+        {
+            get { return isStopped; }
+            set { isStopped = value; }
         }
     }
 }
