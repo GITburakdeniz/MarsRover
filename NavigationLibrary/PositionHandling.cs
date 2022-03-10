@@ -35,5 +35,16 @@
             }
             return false;
         }
+        
+        public static bool IsInBorder(this Position position)
+        {
+            if (position.XCordinate < Plateau.GetInstance().LowerXCordinate || position.YCordinate < Plateau.GetInstance().LowerXCordinate)
+                return false;
+
+            if (position.XCordinate > Plateau.GetInstance().UpperXCordinate || position.YCordinate > Plateau.GetInstance().UpperYCordinate)
+                return false;
+            return true;
+        }
+
     }
 }

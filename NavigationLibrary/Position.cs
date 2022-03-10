@@ -3,24 +3,24 @@ namespace NavigationLibrary
 {
     public class Position
     {
-        private int xCor;
-        private int yCor;
+        private long xCor;
+        private long yCor;
         private Direction direction;
 
-        public Position(int xCor, int yCor, Direction direction)
+        public Position(long xCor, long yCor, Direction direction)
         {
             this.xCor = xCor;   
             this.yCor = yCor;
             this.direction = direction;
         }
 
-        public int XCordinate 
+        public long XCordinate 
         {
             get { return xCor; } 
             set { xCor = value; } 
         }
 
-        public int YCordinate
+        public long YCordinate
         {
             get { return yCor; }
             set { yCor = value; }
