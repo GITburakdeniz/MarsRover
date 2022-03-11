@@ -1,11 +1,17 @@
-﻿
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace NavigationLibrary
 {
-    public static class NavigationHandling
+    public class NavigationHandling
     {
-        public static bool IsValidTurn(this string? str)
+        private readonly List<Turn> navigationRoute;
+
+        public NavigationHandling() { navigationRoute = new List<Turn>(); }
+
+        public List<Turn> NavigationRoute { get { return navigationRoute; } }
+        public void AddNewRoute(Turn turn) { navigationRoute.Add(turn); }
+
+        public bool IsValidTurn( string? str)
         {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
@@ -16,7 +22,7 @@ namespace NavigationLibrary
             return false;
         }
 
-        public static void TurnLeft(this Position position)
+        public void TurnLeft( Position position)
         {
             int currentDir = Convert.ToInt32(position.Direction);
             
@@ -27,7 +33,7 @@ namespace NavigationLibrary
                 position.Direction = Direction.North;
         }
 
-        public static void TurnRight(this Position position)
+        public void TurnRight( Position position)
         {
             int currentDir = Convert.ToInt32(position.Direction);
             
@@ -38,7 +44,7 @@ namespace NavigationLibrary
                 position.Direction = Direction.East;
         }
 
-        public static void MoveFoward(this Position position)
+        public void MoveFoward( Position position)
         {
             long tempX, tempY;
             tempX = position.XCordinate;
