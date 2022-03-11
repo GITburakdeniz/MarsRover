@@ -1,8 +1,9 @@
 ﻿namespace NavigationLibrary
 {
-    public static class PositionHandling
-    {
-        public static bool IsValidPosition(this string? str)
+    public class PositionHandling
+    {   
+        public PositionHandling() { }
+        public bool IsValidPosition(string? str)
         {
 
             if (string.IsNullOrWhiteSpace(str))
@@ -23,9 +24,9 @@
             return false;
         }
 
-        public static bool IsValidDirection(this string? str)
+        public bool IsValidDirection(string? str)
         {
-            if (str.IsValidPosition())
+            if (IsValidPosition(str))
             {
                 string[] positions = str.Split(" ");
                 if (positions.Length == 3 && new string[] { "N","S","W","E" }.Contains(positions[2]))
@@ -36,7 +37,7 @@
             return false;
         }
         
-        public static bool IsInBorder(this Position position)
+        public bool IsInBorder(Position position)
         {
             if (position.XCordinate < Plateau.GetInstance().LowerXCordinate || position.YCordinate < Plateau.GetInstance().LowerXCordinate)
                 return false;
@@ -44,6 +45,18 @@
             if (position.XCordinate > Plateau.GetInstance().UpperXCordinate || position.YCordinate > Plateau.GetInstance().UpperYCordinate)
                 return false;
             return true;
+        }
+
+        public Direction getCompassDirection(string compassDirection)
+        {
+                if (compassDirection == "E")
+                    return Direction.East;
+                else if (compassDirection == "W")
+                    return Direction.West;
+                else if (compassDirection == "N")
+                    return Direction.North;
+                else
+                    return Direction.South;
         }
 
     }
