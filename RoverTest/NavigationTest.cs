@@ -52,7 +52,7 @@ namespace RoverTest
         }
 
         [TestMethod]
-        public void TestRightLeft()
+        public void TestTurnRight()
         {
             List<Direction> currentDirections = new() { Direction.North, Direction.South, Direction.East, Direction.West };
             List<Direction> expectedDirections = new() { Direction.East, Direction.West, Direction.South, Direction.North };
