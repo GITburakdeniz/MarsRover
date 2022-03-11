@@ -8,13 +8,15 @@ namespace RoverTest
     [TestClass] 
     public class NavigationTest
     {
+        NavigationHandling navigation = new NavigationHandling();
+
         [TestMethod]
         public void TestInvalidTurns()
-        {
+        {   
             string[] turns = { "LLTLL", "MMRU", "1 0", ".", ";", "rml", "RMLI","L MM", "MMRMM RMRRM" };
             foreach (var word in turns)
             {
-                bool result = word.IsValidTurn();
+                bool result = navigation.IsValidTurn(word);
                 Assert.IsFalse(result,
                       string.Format("Expected for '{0}': false; Actual: {1}",
                                     word, result));
@@ -27,7 +29,7 @@ namespace RoverTest
             string[] turns = { "LLLL", "MM", "LMLMLMLMM", "MMRMMRMRRM", "MMRMMRMRRLML" };
             foreach (var word in turns)
             {
-                bool result = word.IsValidTurn();
+                bool result = navigation.IsValidTurn(word);
                 Assert.IsTrue(result,
                       string.Format("Expected for '{0}': true; Actual: {1}",
                                     word, result));
@@ -44,7 +46,7 @@ namespace RoverTest
             foreach (var direction in currentDirections)
             {
                 Position position = new Position(3, 4, direction);
-                position.TurnLeft();
+                navigation.TurnLeft(position);
                 nextDirections.Add(position.Direction);
             }
             
@@ -61,7 +63,7 @@ namespace RoverTest
             foreach (var direction in currentDirections)
             {
                 Position position = new Position(3, 4, direction);
-                position.TurnRight();
+                navigation.TurnRight(position);
                 nextDirections.Add(position.Direction);
             }
 
@@ -77,29 +79,29 @@ namespace RoverTest
             Direction direction = Direction.North;
             Position position = new Position(3, 4, direction);
 
-            position.MoveFoward();
+            navigation.MoveFoward(position);
             Assert.AreEqual(3, position.XCordinate);
             Assert.AreEqual(5, position.YCordinate);
 
-            position.MoveFoward();
+            navigation.MoveFoward(position);
             Assert.IsTrue(position.IsStopped);
             position.IsStopped = false;
 
             direction = Direction.South;
             position = new Position(4, 5, direction);
 
-            position.MoveFoward();
+            navigation.MoveFoward(position);
             Assert.AreEqual(4, position.XCordinate);
             Assert.AreEqual(4, position.YCordinate);
 
             direction = Direction.West;
             position = new Position(4, 5, direction);
 
-            position.MoveFoward();
+            navigation.MoveFoward(position);
             Assert.AreEqual(3, position.XCordinate);
             Assert.AreEqual(5, position.YCordinate);
 
-            position.MoveFoward();
+            navigation.MoveFoward(position);
             Assert.AreEqual(2, position.XCordinate);
             Assert.AreEqual(5, position.YCordinate);
             Assert.IsFalse(position.IsStopped);
@@ -107,16 +109,16 @@ namespace RoverTest
             direction = Direction.East;
             position = new Position(0, 0, direction);
 
-            position.MoveFoward();
+            navigation.MoveFoward(position);
             Assert.AreEqual(1, position.XCordinate);
             Assert.AreEqual(0, position.YCordinate);
 
-            position.MoveFoward();
-            position.MoveFoward();
-            position.MoveFoward();
-            position.MoveFoward();
-            position.MoveFoward();
-            position.MoveFoward();
+            navigation.MoveFoward(position);
+            navigation.MoveFoward(position);
+            navigation.MoveFoward(position);
+            navigation.MoveFoward(position);
+            navigation.MoveFoward(position);
+            navigation.MoveFoward(position);
 
             Assert.IsTrue(position.IsStopped);
 

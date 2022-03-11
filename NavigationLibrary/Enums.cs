@@ -8,5 +8,12 @@ namespace NavigationLibrary
         North,
         NumberOfDirection
     }
+
+    public enum Turn
+    {
+        Left,
+        Right,
+        Foward
+    }
     
 }
