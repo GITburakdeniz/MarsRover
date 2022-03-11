@@ -31,6 +31,9 @@ namespace NavigationLibrary
 
             if (currentDir == -1)
                 position.Direction = Direction.North;
+
+            if (position.IsStopped)
+                position.IsStopped = false;
         }
 
         public void TurnRight( Position position)
@@ -42,6 +45,10 @@ namespace NavigationLibrary
 
             if (currentDir == (Convert.ToInt32(Direction.NumberOfDirection)))
                 position.Direction = Direction.East;
+            
+            if (position.IsStopped)
+                position.IsStopped = false;
+
         }
 
         public void MoveFoward( Position position)

@@ -39,7 +39,7 @@
         
         public bool IsInBorder(Position position)
         {
-            if (position.XCordinate < Plateau.GetInstance().LowerXCordinate || position.YCordinate < Plateau.GetInstance().LowerXCordinate)
+            if (position.XCordinate < Plateau.GetInstance().LowerXCordinate || position.YCordinate < Plateau.GetInstance().LowerYCordinate)
                 return false;
 
             if (position.XCordinate > Plateau.GetInstance().UpperXCordinate || position.YCordinate > Plateau.GetInstance().UpperYCordinate)
