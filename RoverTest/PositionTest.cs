@@ -6,14 +6,16 @@ namespace RoverTest
 {
     [TestClass]
     public class PositionTest
-    {
+    {   
+        PositionHandling checkPosition = new PositionHandling();
+
         [TestMethod]
         public void TestInvalidPositions()
         {
             string[] positions = { "-5 -5", "", "-1 0", ".", ";", "A B", "123aa aa54321", "123", "abc", "-1 8888 W", "A 1 W", "111tt 22 E" };
             foreach (var word in positions)
             {
-                bool result = word.IsValidPosition();
+                bool result = checkPosition.IsValidPosition(word);
                 Assert.IsFalse(result,
                       string.Format("Expected for '{0}': false; Actual: {1}",
                                     word, result));
@@ -26,7 +28,7 @@ namespace RoverTest
             string[] positions = { "5 5", "1 0", "0 0", "0 1", "999999 998899", "123 54321", "1 2 N", "3 2 N", "9 8 S","99999 998899 W" };
             foreach (var word in positions)
             {
-                bool result = word.IsValidPosition();
+                bool result = checkPosition.IsValidPosition(word);
                 Assert.IsTrue(result,
                       string.Format("Expected for '{0}': true; Actual: {1}",
                                     word, result));
@@ -39,7 +41,7 @@ namespace RoverTest
             string[] positions = { "1 2 N", "3 2 W", "9 8 S", "99999 998899 W","0 0 E"};
             foreach (var word in positions)
             {
-                bool result = word.IsValidDirection();
+                bool result = checkPosition.IsValidDirection(word);
                 Assert.IsTrue(result,
                       string.Format("Expected for '{0}': true; Actual: {1}",
                                     word, result));
@@ -52,7 +54,7 @@ namespace RoverTest
             string[] positions = { "1 -2 N", "3 2 w", "9 8 SE", "99999 998899 Q", "0 -1 E", "0 E", "2 3","-1 0","11 22 R" };
             foreach (var word in positions)
             {
-                bool result = word.IsValidDirection();
+                bool result = checkPosition.IsValidDirection(word);
                 Assert.IsFalse(result,
                       string.Format("Expected for '{0}': false; Actual: {1}",
                                     word, result));
@@ -75,7 +77,7 @@ namespace RoverTest
                 string[] cor = word.Split(" ");
                 position = new Position(Convert.ToInt64(cor[0]), Convert.ToInt64(cor[1]),direction);
 
-                bool result = position.IsInBorder();    
+                bool result = checkPosition.IsInBorder(position);    
                 Assert.IsTrue(result,
                       string.Format("Expected for '{0}': true; Actual: {1}",
                                     word, result));
@@ -98,7 +100,7 @@ namespace RoverTest
                 string[] cor = word.Split(" ");
                 position = new Position(Convert.ToInt64(cor[0]), Convert.ToInt64(cor[1]), direction);
 
-                bool result = position.IsInBorder();
+                bool result = checkPosition.IsInBorder(position);
                 Assert.IsFalse(result,
                       string.Format("Expected for '{0}': false; Actual: {1}",
                                     word, result));

@@ -49,6 +49,7 @@ namespace NavigationLibrary
             long tempX, tempY;
             tempX = position.XCordinate;
             tempY = position.YCordinate;
+            PositionHandling checkPosition = new PositionHandling();
 
             if (position.Direction == Direction.North)
                 position.YCordinate++;
@@ -59,7 +60,7 @@ namespace NavigationLibrary
             if (position.Direction == Direction.South)
                 position.YCordinate--;
 
-            if (!position.IsInBorder())
+            if (!checkPosition.IsInBorder(position))
             {
                 position.XCordinate = tempX;
                 position.YCordinate = tempY;
