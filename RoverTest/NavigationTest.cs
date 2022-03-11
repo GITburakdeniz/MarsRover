@@ -15,7 +15,7 @@ namespace RoverTest
             string[] turns = { "LLTLL", "MMRU", "1 0", ".", ";", "rml", "RMLI","L MM", "MMRMM RMRRM" };
             foreach (var word in turns)
             {
-                bool result = navigation.IsValidTurn(word);
+                bool result = navigation.IsValidRoute(word);
                 Assert.IsFalse(result,
                       string.Format("Expected for '{0}': false; Actual: {1}",
                                     word, result));
@@ -28,7 +28,7 @@ namespace RoverTest
             string[] turns = { "LLLL", "MM", "LMLMLMLMM", "MMRMMRMRRM", "MMRMMRMRRLML" };
             foreach (var word in turns)
             {
-                bool result = navigation.IsValidTurn(word);
+                bool result = navigation.IsValidRoute(word);
                 Assert.IsTrue(result,
                       string.Format("Expected for '{0}': true; Actual: {1}",
                                     word, result));

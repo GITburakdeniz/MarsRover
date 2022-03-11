@@ -11,7 +11,7 @@ namespace NavigationLibrary
         public List<Turn> NavigationRoute { get { return navigationRoute; } }
         public void AddNewRoute(Turn turn) { navigationRoute.Add(turn); }
 
-        public bool IsValidTurn( string? str)
+        public bool IsValidRoute( string? str)
         {
             if (string.IsNullOrWhiteSpace(str))
                 return false;
