@@ -5,12 +5,24 @@ namespace NavigationLibrary
     {
         private Position position;
         private NavigationHandling navigation;
+        private PositionHandling checkPosition;
 
-        public Rover(long initialXCor, long initialYCor, Direction initialDirection, string exploreRoute) 
+        public Rover(string initialPosition, string exploreRoute) 
         {
-            position = new Position(initialXCor,initialYCor,initialDirection);
+            checkPosition = new PositionHandling();
             navigation = new NavigationHandling();
+            position = createPosition(initialPosition);
             CreateRoute(exploreRoute);
+        }
+        public Position createPosition(string initialPosition)
+        {
+                if (checkPosition.IsValidDirection(initialPosition))
+                {
+                    string[] positions = initialPosition.Split(" ");
+                    
+                    return new Position(Convert.ToInt64(positions[0]), Convert.ToInt64(positions[1]),checkPosition.getCompassDirection(positions[2]));
+                }
+            return null;
         }
 
         public void CreateRoute(string exploreRoute) 
@@ -40,6 +52,11 @@ namespace NavigationLibrary
         public List<Turn> GetRoverRoute()
         {
             return navigation.NavigationRoute;
+        }
+
+        public Position GetRoverPosition()
+        {
+            return position;
         }
     }
 }

@@ -47,5 +47,17 @@
             return true;
         }
 
+        public Direction getCompassDirection(string compassDirection)
+        {
+                if (compassDirection == "E")
+                    return Direction.East;
+                else if (compassDirection == "W")
+                    return Direction.West;
+                else if (compassDirection == "N")
+                    return Direction.North;
+                else
+                    return Direction.South;
+        }
+
     }
 }
