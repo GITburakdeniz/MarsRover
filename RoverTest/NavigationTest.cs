@@ -1,18 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NavigationLibrary;
-using System;
 using System.Collections.Generic;
 
 namespace RoverTest
 {
-    [TestClass] 
+    [TestClass]
     public class NavigationTest
     {
         NavigationHandling navigation = new NavigationHandling();
 
         [TestMethod]
         public void TestInvalidTurns()
-        {   
+        {
             string[] turns = { "LLTLL", "MMRU", "1 0", ".", ";", "rml", "RMLI","L MM", "MMRMM RMRRM" };
             foreach (var word in turns)
             {
@@ -38,8 +37,8 @@ namespace RoverTest
 
         [TestMethod]
         public void TestTurnLeft()
-        {   
-            List<Direction> currentDirections = new(){ Direction.North, Direction.South, Direction.East, Direction.West };
+        {
+            List<Direction> currentDirections = new() { Direction.North, Direction.South, Direction.East, Direction.West };
             List<Direction> expectedDirections = new() { Direction.West, Direction.East, Direction.North, Direction.South };
             List<Direction> nextDirections = new();
 
@@ -49,7 +48,7 @@ namespace RoverTest
                 navigation.TurnLeft(position);
                 nextDirections.Add(position.Direction);
             }
-            
+
             CollectionAssert.AreEqual(nextDirections, expectedDirections);
         }
 
@@ -122,6 +121,19 @@ namespace RoverTest
 
             Assert.IsTrue(position.IsStopped);
 
+        }
+
+        [TestMethod]
+        public void TestNavigationRoute()
+        {   
+            List<Turn> expectedTurns = new List<Turn>() { Turn.Right, Turn.Left, Turn.Foward, Turn.Right };
+
+            navigation.AddNewRoute(Turn.Right);
+            navigation.AddNewRoute(Turn.Left);
+            navigation.AddNewRoute(Turn.Foward);
+            navigation.AddNewRoute(Turn.Right);
+
+            CollectionAssert.AreEqual(expectedTurns,navigation.NavigationRoute);
         }
     }
 }
