@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mission", "Mission\Mission.csproj", "{A5F20318-F382-46E4-AE4F-EB114BB8C89F}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NavigationLibrary", "NavigationLibrary\NavigationLibrary.csproj", "{106F9578-9AFC-47C4-A4D5-4519DEB8C196}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoverTest", "RoverTest\RoverTest.csproj", "{CC52F6C6-1FD8-4A3B-B1E3-90D899A11846}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mission", "Mission\Mission.csproj", "{A5F20318-F382-46E4-AE4F-EB114BB8C89F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
