@@ -8,7 +8,12 @@ namespace NavigationLibrary
         private long UpperXCor;
         private long UpperYCor;
 
-        private Plateau() { }
+        private Plateau() {
+            LowerXCor = 0;
+            LowerYCor = 0;
+            UpperXCor = 0;
+            UpperYCor = 0;
+        }
         private static Plateau? instance = null;
         public static Plateau? GetInstance()
         {   

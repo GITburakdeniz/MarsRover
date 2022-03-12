@@ -15,7 +15,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mission\Mission.csproj" />
     <ProjectReference Include="..\NavigationLibrary\NavigationLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Outputs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -46,7 +46,15 @@ namespace NavigationLibrary
 
         public void Explore()
         {
-
+            foreach(Turn nextRoute in GetRoverRoute())
+            {
+                    if (nextRoute == Turn.Foward && !position.IsStopped)
+                        navigation.MoveFoward(position);
+                    if (nextRoute == Turn.Left)
+                        navigation.TurnLeft(position);
+                    if (nextRoute == Turn.Right)
+                        navigation.TurnRight(position);
+            }
         }
 
         public List<Turn> GetRoverRoute()

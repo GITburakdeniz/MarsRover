@@ -39,7 +39,7 @@
         
         public bool IsInBorder(Position position)
         {
-            if (position.XCordinate < Plateau.GetInstance().LowerXCordinate || position.YCordinate < Plateau.GetInstance().LowerXCordinate)
+            if (position.XCordinate < Plateau.GetInstance().LowerXCordinate || position.YCordinate < Plateau.GetInstance().LowerYCordinate)
                 return false;
 
             if (position.XCordinate > Plateau.GetInstance().UpperXCordinate || position.YCordinate > Plateau.GetInstance().UpperYCordinate)
@@ -57,6 +57,18 @@
                     return Direction.North;
                 else
                     return Direction.South;
+        }
+
+        public string getCompassSymbolDirection(Direction compassDirection)
+        {
+            if (compassDirection == Direction.North)
+                return "N";
+            if (compassDirection == Direction.East)
+                return "E";
+            if (compassDirection == Direction.West)
+                return "W";
+            else
+                return "S";
         }
 
     }
