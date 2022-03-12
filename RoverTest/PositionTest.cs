@@ -4,11 +4,17 @@ using System;
 
 namespace RoverTest
 {
+    /// <summary>
+    /// Test cases of the Rover's Position
+    /// </summary>
     [TestClass]
     public class PositionTest
     {   
         PositionHandling checkPosition = new PositionHandling();
 
+        /// <summary>
+        /// Tests invalid rover's positions.
+        /// </summary>
         [TestMethod]
         public void TestInvalidPositions()
         {
@@ -22,6 +28,9 @@ namespace RoverTest
             }
         }
 
+        /// <summary>
+        /// Tests valid rover's positions.
+        /// </summary>
         [TestMethod]
         public void TestValidPositions()
         {
@@ -35,6 +44,9 @@ namespace RoverTest
             }
         }
 
+        /// <summary>
+        /// Tests valid rover's direction.
+        /// </summary>
         [TestMethod]
         public void TestValidDirection()
         {
@@ -48,6 +60,9 @@ namespace RoverTest
             }
         }
 
+        /// <summary>
+        /// Tests invalid rover's direction.
+        /// </summary>
         [TestMethod]
         public void TestInValidDirection()
         {
@@ -61,6 +76,9 @@ namespace RoverTest
             }
         }
 
+        /// <summary>
+        /// Tests rover's position which is in border or not.
+        /// </summary>
         [TestMethod]
         public void TestValidIsInBorder()
         {
@@ -84,6 +102,9 @@ namespace RoverTest
             }
         }
 
+        /// <summary>
+        /// Tests rover's position which is not in border or not.
+        /// </summary>
         [TestMethod]
         public void TestInvalidIsInBorder()
         {
@@ -106,6 +127,10 @@ namespace RoverTest
                                     word, result));
             }
         }
+
+        /// <summary>
+        /// Tests compass direction conversions.
+        /// </summary>
         [TestMethod]
         public void TestCompassDirection()
         {   

@@ -4,11 +4,17 @@ using System.Collections.Generic;
 
 namespace RoverTest
 {
+    /// <summary>
+    /// Test cases of the Navigation System
+    /// </summary>
     [TestClass]
     public class NavigationTest
     {
         NavigationHandling navigation = new NavigationHandling();
 
+        /// <summary>
+        /// Tests invalid turns from route data
+        /// </summary>
         [TestMethod]
         public void TestInvalidTurns()
         {
@@ -22,6 +28,9 @@ namespace RoverTest
             }
         }
 
+        /// <summary>
+        /// Tests valid turns from route data
+        /// </summary>
         [TestMethod]
         public void TestValidTurns()
         {
@@ -35,6 +44,9 @@ namespace RoverTest
             }
         }
 
+        /// <summary>
+        /// Tests rover's left maneuver
+        /// </summary>
         [TestMethod]
         public void TestTurnLeft()
         {
@@ -52,6 +64,9 @@ namespace RoverTest
             CollectionAssert.AreEqual(nextDirections, expectedDirections);
         }
 
+        /// <summary>
+        /// Tests rover's right maneuver
+        /// </summary>
         [TestMethod]
         public void TestTurnRight()
         {
@@ -69,6 +84,9 @@ namespace RoverTest
             CollectionAssert.AreEqual(nextDirections, expectedDirections);
         }
 
+        /// <summary>
+        /// Tests rover's move foward maneuver
+        /// </summary>
         [TestMethod]
         public void TestValidMoveFoward()
         {
@@ -123,6 +141,9 @@ namespace RoverTest
 
         }
 
+        /// <summary>
+        /// Tests creation of the rover's route
+        /// </summary>
         [TestMethod]
         public void TestNavigationRoute()
         {   
