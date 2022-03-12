@@ -62,3 +62,28 @@ Run All Unit Tests and Output Test (RoverTest MStest Project)
  * To run only "Mission Test" to validate project output data with expected data.
   
      Test Menu -> Test Explorer -> RoverTest-> MissionTest-> TestMission
+     
+     After run the test, test results can be seen in the explorer.
+     
+Sample Run and Test
+--------------------
+Inputs.txt
+
+![Capture3](https://user-images.githubusercontent.com/22982122/158023542-2d26f123-3528-40bc-8b7f-06c24ba97231.PNG)
+
+ Outputs.txt
+ 
+![Capture4](https://user-images.githubusercontent.com/22982122/158023569-09357f71-5066-4615-9417-8417e9606db2.PNG)
+ 
+ Run "Mission"
+ 
+![Capture1](https://user-images.githubusercontent.com/22982122/158023628-6a513959-52f9-4ff9-b86f-64b0ce7530e1.PNG)
+
+Run All Unit Test
+
+![Capture](https://user-images.githubusercontent.com/22982122/158023674-43521b68-eddf-4565-ae4a-e7f3c0da7475.PNG)
+
+ 
+ 
+
+
