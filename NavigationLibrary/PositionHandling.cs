@@ -1,15 +1,24 @@
 ﻿namespace NavigationLibrary
 {
     public class PositionHandling
-    {   
+    {
+        /// <summary>
+        /// Position handling for navigating a mars rover.
+        /// </summary>
         public PositionHandling() { }
-        public bool IsValidPosition(string? str)
+
+        /// <summary>
+        /// Validates given position string which must contains valid length and value.
+        /// </summary>
+        /// <param name="positionString">position of the Rover</param>
+        /// <returns> True or False </returns>
+        public bool IsValidPosition(string? positionString)
         {
 
-            if (string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrWhiteSpace(positionString))
                 return false;
 
-            string[] positions = str.Split(" ");
+            string[] positions = positionString.Split(" ");
 
             if (positions.Length < 2 || positions.Length > 3)
                 return false;
@@ -24,11 +33,16 @@
             return false;
         }
 
-        public bool IsValidDirection(string? str)
+        /// <summary>
+        /// Validates given direction string which must contains valid direction
+        /// </summary>
+        /// <param name="positionString">position of the Rover</param>
+        /// <returns> True or False </returns>
+        public bool IsValidDirection(string? positionString)
         {
-            if (IsValidPosition(str))
+            if (IsValidPosition(positionString))
             {
-                string[] positions = str.Split(" ");
+                string[] positions = positionString.Split(" ");
                 if (positions.Length == 3 && new string[] { "N","S","W","E" }.Contains(positions[2]))
                 {
                     return true;
@@ -36,7 +50,12 @@
             }
             return false;
         }
-        
+
+        /// <summary>
+        /// Checks given position is in the plateau border or not.
+        /// </summary>
+        /// <param name="position">position object of the Rover</param>
+        /// <returns> True or False </returns>
         public bool IsInBorder(Position position)
         {
             if (position.XCordinate < Plateau.GetInstance().LowerXCordinate || position.YCordinate < Plateau.GetInstance().LowerYCordinate)
@@ -47,6 +66,11 @@
             return true;
         }
 
+        /// <summary>
+        /// converts compass direction symbol to enum and returns it.
+        /// </summary>
+        /// <param name="compassDirection">current compass Direction of the Rover</param>
+        /// <returns> Direction enumeration of the rover </returns>
         public Direction getCompassDirection(string compassDirection)
         {
                 if (compassDirection == "E")
@@ -59,6 +83,11 @@
                     return Direction.South;
         }
 
+        /// <summary>
+        /// converts compass direction enumeration to symbol and returns it.
+        /// </summary>
+        /// <param name="compassDirection">current compass Direction of the Rover</param>
+        /// <returns>  Compass direction symbol of the rover </returns>
         public string getCompassSymbolDirection(Direction compassDirection)
         {
             if (compassDirection == Direction.North)

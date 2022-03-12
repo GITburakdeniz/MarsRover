@@ -1,12 +1,18 @@
 ﻿
 namespace NavigationLibrary
 {
+    /// <summary>
+    /// The class that contains the rover data and capabilities.
+    /// </summary>
     public class Rover
     {
         private Position position;
         private NavigationHandling navigation;
         private PositionHandling checkPosition;
 
+        /// <summary>
+        /// Creates its current position and exploration route.
+        /// </summary>
         public Rover(string initialPosition, string exploreRoute) 
         {
             checkPosition = new PositionHandling();
@@ -14,6 +20,12 @@ namespace NavigationLibrary
             position = createPosition(initialPosition);
             CreateRoute(exploreRoute);
         }
+
+        /// <summary>
+        /// Creates  current position of the Rover.
+        /// </summary>
+        /// <param name="initialPosition"> initial Position of the Rover</param>
+        /// <returns> Position object </returns>
         public Position createPosition(string initialPosition)
         {
                 if (checkPosition.IsValidDirection(initialPosition))
@@ -25,6 +37,11 @@ namespace NavigationLibrary
             return null;
         }
 
+        /// <summary>
+        /// Creates exploration route of the Rover.
+        /// </summary>
+        /// <param name="exploreRoute"> explore Route of the Rover</param>
+        /// <returns> Position object </returns>
         public void CreateRoute(string exploreRoute) 
         {
              if (navigation != null && position != null)
@@ -44,6 +61,10 @@ namespace NavigationLibrary
             }
         }
 
+        /// <summary>
+        /// Starts rover exploration.
+        /// </summary>
+        /// <returns> No returns </returns>
         public void Explore()
         {
             foreach(Turn nextRoute in GetRoverRoute())
@@ -57,11 +78,19 @@ namespace NavigationLibrary
             }
         }
 
+        /// <summary>
+        /// Get rover's route.
+        /// </summary>
+        /// <returns> List of Turns numeration which contains route directions </returns>
         public List<Turn> GetRoverRoute()
         {
             return navigation.NavigationRoute;
         }
 
+        /// <summary>
+        /// Get rover's position.
+        /// </summary>
+        /// <returns> Rover's current position. </returns>
         public Position GetRoverPosition()
         {
             return position;

@@ -1,6 +1,9 @@
 ﻿
 namespace NavigationLibrary
 {
+    /// <summary>
+    /// Stores border coordinates of the mission plateau.
+    /// </summary>
     public sealed class Plateau
     {
         private long LowerXCor;

@@ -1,6 +1,9 @@
 ﻿
 namespace NavigationLibrary
 {
+    /// <summary>
+    /// Stores a rover's current position coordinates.
+    /// </summary>
     public class Position
     {
         private long xCor;
