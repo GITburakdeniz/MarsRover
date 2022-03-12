@@ -1,10 +1,13 @@
 ﻿using NavigationLibrary;
 
 namespace Mission
-{
+{    
+     /// <summary>
+     /// Starts mission of Mars Rover Exploration from given inputs.
+     /// </summary>
     class Mission
     {   
-        static void Main(string[] args)
+        static void Main( )
         {
             DataHandling missionData = new DataHandling();
             missionData.getMissionFromInputs();

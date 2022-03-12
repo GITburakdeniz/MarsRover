@@ -7,9 +7,15 @@ using System;
 
 namespace RoverTest
 {
+    /// <summary>
+    /// Test cases of the Rover's Misson
+    /// </summary>
     [TestClass]
     public class MissonTest
     {
+        /// <summary>
+        /// Tests PleatuBorder Function.
+        /// </summary>
         [TestMethod]
         public void TestValidPleatuBordersInput()
         {
@@ -29,6 +35,9 @@ namespace RoverTest
             Assert.AreEqual(0, Plateau.GetInstance().LowerYCordinate);
         }
 
+        /// <summary>
+        /// Tests Create Rover Function.
+        /// </summary>
         [TestMethod]
         public void TestCreateRover()
         {
@@ -54,6 +63,9 @@ namespace RoverTest
 
         }
 
+        /// <summary>
+        /// Tests Create Rover from Input.txt
+        /// </summary>
         [TestMethod]
         public void TestCreateRoverFromInput()
         {
@@ -75,6 +87,9 @@ namespace RoverTest
 
         }
 
+        /// <summary>
+        /// Tests Rover's Mars Mission given Inputs.txt and compare Outputs.txt
+        /// </summary>
         [TestMethod]
         public void TestMisson(){
 
@@ -103,6 +118,10 @@ namespace RoverTest
             }
         }
 
+        /// <summary>
+        /// Get mission output data from Outputs.txt 
+        /// </summary>
+        /// <returns> List of last position </returns>
         public List<string> getOutputData()
         {   
             List<string> outputData = new List<string>();

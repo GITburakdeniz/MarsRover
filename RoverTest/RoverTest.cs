@@ -4,9 +4,15 @@ using System.Collections.Generic;
 
 namespace RoverTest
 {
+    /// <summary>
+    /// Test cases of the Rover's abilities
+    /// </summary>
     [TestClass]
     public class RoverTest
     {
+        /// <summary>
+        /// Tests Create exploration route Function.
+        /// </summary>
         [TestMethod]
         public void testCreateRoute()
         {
@@ -17,6 +23,9 @@ namespace RoverTest
             CollectionAssert.AreEqual(expectedTurns, roverF.GetRoverRoute());
         }
 
+        /// <summary>
+        /// Tests Create initial position of the rover.
+        /// </summary>
         [TestMethod]
         public void TestCreatePosition()
         {
@@ -34,6 +43,9 @@ namespace RoverTest
 
         }
 
+        /// <summary>
+        /// Tests Rover's exploration result
+        /// </summary>
         [TestMethod]
         public void TestExplorer()
         {
