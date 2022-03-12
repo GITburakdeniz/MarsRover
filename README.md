@@ -29,8 +29,7 @@ Clone:
        https://github.com/GITburakdeniz/MarsRover/archive/refs/heads/master.zip
               
               
-* If cloned open "MarsRover" folder
- If zip file downloaded, extract it and then open "MarsRover-master" folder.
+* If cloned, open "MarsRover" folder. If zip file downloaded, extract it and then open "MarsRover-master" folder.
 * Open MarsRover.sln with Visual Studio from "MarsRover" or "MarsRover-master" folder.
 
 Build and Run Project
