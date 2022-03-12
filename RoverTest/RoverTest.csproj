@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mission\Mission.csproj" />
     <ProjectReference Include="..\NavigationLibrary\NavigationLibrary.csproj" />
   </ItemGroup>
 

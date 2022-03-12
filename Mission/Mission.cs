@@ -1,31 +1,13 @@
-﻿
-using NavigationLibrary;
+﻿using NavigationLibrary;
 
-class Mission
+namespace Mission
 {
-
-    void ReadInputFile()
-    {
-        string fileName = System.IO.Path.GetFullPath(Directory.GetCurrentDirectory() + @"\Inputs.txt");
-
-        Console.WriteLine("Your file content is:");
-        using (StreamReader sr = File.OpenText(fileName))
+    class Mission
+    {   
+        static void Main(string[] args)
         {
-            string s = "";
-            while ((s = sr.ReadLine()) != null)
-            {
-                Console.WriteLine(s);
-            }
+            DataHandling missionData = new DataHandling();
+            missionData.getMissionFromInputs();
         }
-
-        Console.ReadKey();
-    }
-
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello World!");
-        Mission mission = new Mission();
-        mission.ReadInputFile();
-
     }
 }

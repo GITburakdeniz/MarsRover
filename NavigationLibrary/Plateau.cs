@@ -11,6 +11,8 @@ namespace NavigationLibrary
         private Plateau() {
             LowerXCor = 0;
             LowerYCor = 0;
+            UpperXCor = 0;
+            UpperYCor = 0;
         }
         private static Plateau? instance = null;
         public static Plateau? GetInstance()
