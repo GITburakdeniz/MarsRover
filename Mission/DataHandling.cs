@@ -16,7 +16,6 @@ namespace Mission
 
             using (sr)
             {
-                Rover rover;
                 string firstLine = sr.ReadLine() ?? "";
                 string initialPosition, exploreRoute;
 
