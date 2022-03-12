@@ -1,7 +1,10 @@
 ﻿using NavigationLibrary;
 
 namespace Mission
-{
+{    
+     /// <summary>
+     /// Starts mission of Mars Rover Exploration from given inputs.
+     /// </summary>
     class Mission
     {   
         static void Main( )
