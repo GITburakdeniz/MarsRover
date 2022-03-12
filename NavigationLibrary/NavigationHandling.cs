@@ -73,6 +73,8 @@ namespace NavigationLibrary
                 position.YCordinate = tempY;
                 position.IsStopped = true;
             }
+
+            position.CompassDirectionSymbol = checkPosition.getCompassSymbolDirection(position.Direction);
         }
     }
 }

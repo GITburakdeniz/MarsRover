@@ -7,13 +7,15 @@ namespace NavigationLibrary
         private long yCor;
         private Direction direction;
         private bool isStopped;
+        private string compassDirectionSymbol;
 
         public Position(long xCor, long yCor, Direction direction)
         {
             this.xCor = xCor;   
             this.yCor = yCor;
             this.direction = direction;
-            this.isStopped = false;
+            isStopped = false;
+            compassDirectionSymbol = "";
         }
 
         public long XCordinate 
@@ -38,6 +40,12 @@ namespace NavigationLibrary
         {
             get { return isStopped; }
             set { isStopped = value; }
+        }
+
+        public string CompassDirectionSymbol
+        {
+            get { return compassDirectionSymbol; }
+            set { compassDirectionSymbol = value; }
         }
     }
 }

@@ -99,11 +99,8 @@ namespace RoverTest
 
                 Assert.AreEqual(roverLastPosition.XCordinate, Convert.ToInt64(positionString[0]));
                 Assert.AreEqual(roverLastPosition.YCordinate, Convert.ToInt64(positionString[1]));
-                Assert.AreEqual(roverLastPosition.Direction, handleData.getCompassDirection(positionString[2]));
+                Assert.AreEqual(handleData.getCompassSymbolDirection(roverLastPosition.Direction),positionString[2]);
             }
-
-                
-
         }
 
         public List<string> getOutputData()
