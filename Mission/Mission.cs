@@ -4,7 +4,7 @@ namespace Mission
 {
     class Mission
     {   
-        static void Main(string[] args)
+        static void Main()
         {
             DataHandling missionData = new DataHandling();
             missionData.getMissionFromInputs();

@@ -14,8 +14,8 @@ namespace NavigationLibrary
             UpperXCor = 0;
             UpperYCor = 0;
         }
-        private static Plateau? instance = null;
-        public static Plateau? GetInstance()
+        private static Plateau? instance;
+        public static Plateau GetInstance()
         {   
             if (instance == null)   
                 instance = new Plateau();
