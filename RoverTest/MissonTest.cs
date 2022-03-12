@@ -2,6 +2,8 @@
 using NavigationLibrary;
 using Mission;
 using System.Collections.Generic;
+using System.IO;
+using System;
 
 namespace RoverTest
 {
@@ -41,7 +43,7 @@ namespace RoverTest
             data.AddRoverToMisson(data.createRover("0 0 S", "MLM"));
             data.AddRoverToMisson(data.createRover("0 0 N", "MMLMMRRMLMLLMMLMMMML"));
             data.AddRoverToMisson(data.createRover("50 60 W", "MMLMMRRMLRRMLMRRMLRRMM"));
-            
+
             for (int i = 0; i < expectedRovers.Count; i++)
             {
                 Assert.AreEqual(data.MissionRovers[i].GetRoverPosition().XCordinate, expectedRovers[i].GetRoverPosition().XCordinate);
@@ -59,10 +61,10 @@ namespace RoverTest
             Rover roverF = new Rover("1 2 N", "LMLMLMLMM");
             Rover roverY = new Rover("3 3 E", "MMRMMRMRRM");
 
-            List<Rover> expectedRovers = new List<Rover>() { roverF, roverY};
+            List<Rover> expectedRovers = new List<Rover>() { roverF, roverY };
             data.getMissionFromInputs();
 
-            
+
             for (int i = 0; i < expectedRovers.Count; i++)
             {
                 Assert.AreEqual(data.MissionRovers[i].GetRoverPosition().XCordinate, expectedRovers[i].GetRoverPosition().XCordinate);
@@ -72,5 +74,57 @@ namespace RoverTest
             }
 
         }
+
+        [TestMethod]
+        public void TestMisson(){
+
+            DataHandling missionData = new DataHandling();
+            PositionHandling handleData = new PositionHandling();
+            missionData.getMissionFromInputs();
+
+            foreach (Rover rover in missionData.MissionRovers)
+            {
+                if (rover != null)
+                {
+                    rover.Explore();
+                }
+            }
+
+            List<string> outputData = getOutputData();
+
+            for (int i = 0; i < outputData.Count; i++)
+            {
+                string[] positionString = outputData[i].Split(" ");
+                Position roverLastPosition = missionData.MissionRovers[i].GetRoverPosition();
+
+                Assert.AreEqual(roverLastPosition.XCordinate, Convert.ToInt64(positionString[0]));
+                Assert.AreEqual(roverLastPosition.YCordinate, Convert.ToInt64(positionString[1]));
+                Assert.AreEqual(roverLastPosition.Direction, handleData.getCompassDirection(positionString[2]));
+            }
+
+                
+
+        }
+
+        public List<string> getOutputData()
+        {   
+            List<string> outputData = new List<string>();
+            string fileName = System.IO.Path.GetFullPath(Directory.GetCurrentDirectory() + @"\Outputs.txt");
+            StreamReader sr = File.OpenText(fileName);
+
+            using (sr)
+            {
+                string line;
+
+                while (!sr.EndOfStream)
+                {
+                    line = sr.ReadLine() ?? "";
+                    outputData.Add(line);
+
+                }
+            }
+            return outputData;
+        }
+
     }
 }

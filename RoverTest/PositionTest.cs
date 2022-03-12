@@ -106,5 +106,18 @@ namespace RoverTest
                                     word, result));
             }
         }
+        [TestMethod]
+        public void TestCompassDirection()
+        {   
+            Assert.AreEqual(Direction.North, checkPosition.getCompassDirection("N"));
+            Assert.AreEqual(Direction.West, checkPosition.getCompassDirection("W"));
+            Assert.AreEqual(Direction.East, checkPosition.getCompassDirection("E"));
+            Assert.AreEqual(Direction.South, checkPosition.getCompassDirection("S"));
+
+            Assert.AreEqual("N", checkPosition.getCompassSymbolDirection(Direction.North));
+            Assert.AreEqual("W", checkPosition.getCompassSymbolDirection(Direction.West));
+            Assert.AreEqual("E", checkPosition.getCompassSymbolDirection(Direction.East));
+            Assert.AreEqual("S", checkPosition.getCompassSymbolDirection(Direction.South));
+        }
     }
 }

@@ -59,5 +59,17 @@
                     return Direction.South;
         }
 
+        public string getCompassSymbolDirection(Direction compassDirection)
+        {
+            if (compassDirection == Direction.North)
+                return "N";
+            if (compassDirection == Direction.East)
+                return "E";
+            if (compassDirection == Direction.West)
+                return "W";
+            else
+                return "S";
+        }
+
     }
 }
